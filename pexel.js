@@ -1,6 +1,6 @@
 const myApiKey = "wKIS4VRxtZsAM5rtZwihJ5gdiyioP3Nj8h61gDhoBcE1UgLMWZMV9YfE";
 
-const apiUrl = "https://api.pexels.com/v1/search?query=";
+const apiUrl = "https://api.pexels.com/v1/search?query=" +query;
 
 const updateImgMountain = document.getElementById("mountains");
 const updateImgKittens = document.getElementById("kittens");
@@ -26,7 +26,7 @@ const getDatas = function (query) {
     .then((data) => {
       console.log("dati ricevuti dal server", data);
       updateImgMountain.addEventListener("click", function () {
-        
+        getDatas("mountains");
         allImg.forEach((img,index) => {
             if (index<data.photos.length){
                 img.src = data.photos[index].src.medium
@@ -57,7 +57,7 @@ const getDatas = function (query) {
     });
 };
  
-getDatas("mountains");
+
 
 updateImgMountain.addEventListener("click", function () {
     getDatas("mountains");})
